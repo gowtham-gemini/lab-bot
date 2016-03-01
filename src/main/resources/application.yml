@@ -1,0 +1,37 @@
+spring:
+    # Datasource Configuration
+    datasource:
+        driverClassName: com.mysql.jdbc.Driver
+        url: jdbc:mysql://localhost:3306/${DB_NAME:lab-bot}
+        username: ${DB_USERNAME:root}
+        password: ${DB_PASSWORD:L3tm3in!@#}
+    jpa:
+        # Specify the DBMS
+        database: MYSQL
+        # Show or not log for each sql query
+        show-sql: true
+        # Hibernate settings are prefixed with spring.jpa.hibernate.*
+        hibernate:
+            ddl-auto: create-drop
+            dialect: org.hibernate.dialect.MySQL5Dialect
+            naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+            show_sql: true
+            format_sql: true
+
+server:
+    port: ${SERVER_PORT:8080}
+    session-timeout: ${SESSION_TIMEOUT:60}
+keystore:
+    file : src/main/resources/private/keystorejks
+    pass : password
+backend:
+    admin:
+        username: ${BACKEND_USERNAME:admin}
+        password: ${BACKEND_PASSWORD:admin}
+        role: BACKEND_ADMIN
+aws.accessKey : ${AWS_ACCESS_KEY:AKIAJ7RYJ77B4MYI7FWA}
+aws.secreetKey : ${AWS_SECREET_KEY:LVZk2CdRUn2qJ3tcxaGG9zkj5rNx8P4QEKrU0R7d}
+
+logging.level.org.springframework.web : TRACE
+security.basic.enabled : false
+endpoints.shutdown.enabled : true

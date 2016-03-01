@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+  <head>
+    <link href='./css/style.css' rel="stylesheet" type="text/css" />
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/report.js"></script>
+  </head>
+
+  <body ng-controller="ReportCtrl">
+  	<div ng-class="loading"></div>
+	<div class="container theme-showcase" role="main">
+      	<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div class="jumbotron">
+		  <h1>AWS Unused Volume  Report</h1>
+		  <p>This report generate unused volumes count.</p>
+		  <form class="form-inline">
+		     <div class="row">
+			     <div class="form-group">
+			      <label for="accessKey">Access Key:</label>
+			      <input type="text" ng-model="accountreport.accessKey" class="form-control" placeholder="Enter AWS Access Key">
+			      <label for="secreetKey">Secreet Key:</label>
+			      <input type="text" ng-model="accountreport.secreetKey" class="form-control" placeholder="Enter AWS Secreet Key">
+			      <button ng-click="loadVolumeReport()" class="btn btn-primary btn-sm">Generate Report</button>
+			      <button class="btn btn-primary btn-sm" ng-click="cleanVolume()">Clean Volumes</button>
+			     </div>
+		     </div>
+  		  </form>
+		</div>
+		<table class="table table-bordered" style="margin-top:10px">
+		     <tr class="active">
+		         <th>Region</th>
+		         <th></th>
+		         <th></th>
+		     </tr>
+		     <tr ng-repeat-start="volumes in unUsedVolumes">
+		      {{volumes.regionName}}
+		         <td style="font-weight: bold;" colspan="4">
+		              {{volumes.regionName}}
+		         </td>
+		     </tr>
+	     	 <tr>
+		     	 <td rowspan="{{volumes.length}}" colspan="1"></td>
+		         <td colspan="1" >Total Unused Volumes</td>
+		         <td colspan="1" >{{volumes.totalUnUsedVolumes}}</td>
+		     </tr>
+		     <tr>
+		     	 <td rowspan="{{volumes.length}}" colspan="1"></td>
+		         <td colspan="1" >Total Unused Size GB</td>
+		         <td colspan="1" >{{volumes.totalUnUsedSize}}</td>
+		     </tr>
+		     <tr ng-repeat-end></tr>
+		</table>
+   	</div>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+conflux-db:
+  image: postgres:9.4.5
+  ports:
+    - "5432:5432"
+  #  Commented below lines due to bug in Mac OS X with docker-machine mapping
+  #  PostgreSQL uses different user other than root to access the volume and that causes the problem
+  #  volumes:
+  #    - ./data:/var/lib/postgresql/data
+  environment:
+    - DB_POSTGRES_DB=conflux
+    - DB_POSTGRES_PASSWORD=Myc6yp7cPassw0rd
+conflux-app:
+  image: conflux:latest
+  ports:
+    - "8080:8080"
+  links:
+    - conflux-db:db

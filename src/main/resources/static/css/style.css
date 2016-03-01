@@ -1,0 +1,67 @@
+/* Styles go here */
+.collapsible-row:hover
+{
+    cursor: pointer;
+    background-color:#EDF4F5;
+}
+
+.table-filter
+{
+    margin-bottom:20px;
+}
+
+    .table-filter input
+    {
+        width:200px;
+        display:inline-block;
+        margin-right:20px;
+    }
+
+    .table-filter:first-child input
+    {
+        float: left;
+        display: block;
+    }
+
+    .table-filter::after
+    {
+	    visibility: hidden;
+	    display: block;
+	    font-size: 0;
+	    content: " ";
+	    clear: both;
+	    height: 0;
+    }
+
+.right-caret {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-left: 2px;
+  vertical-align: middle;
+  border-left: 4px solid;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+}
+
+.se-pre-con {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	background: url(Preloader_2.gif) center no-repeat #fff;
+}
+
+.se-pre-remove {
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	display: none;
+	background: url(Preloader_2.gif) center no-repeat #fff;
+}
+
