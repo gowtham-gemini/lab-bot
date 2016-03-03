@@ -4,22 +4,15 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import com.amazonaws.services.ec2.model.Filter;
 import com.amazonaws.services.ec2.model.Instance;
 import com.amazonaws.services.ec2.model.Reservation;
 import com.amazonaws.services.ec2.model.Tag;
-import com.amazonaws.regions.Region;
-import com.amazonaws.services.ec2.model.DescribeInstancesRequest;
 import com.amazonaws.services.ec2.model.DescribeInstancesResult;
 import com.amazonaws.services.ec2.model.DescribeRegionsResult;
-import com.amazonaws.services.ec2.model.DescribeVolumesRequest;
-import com.amazonaws.services.ec2.model.DescribeVolumesResult;
 import net.apporbit.lab.bot.service.AWSAuthService;
 
 @Controller
@@ -28,7 +21,7 @@ public class AWSUsageReportController {
 
 	@RequestMapping("/region/flavorReport")
     public @ResponseBody ArrayList<HashMap<Object, Object>> getFlavorReport(@RequestParam(value = "accessKey", required = true ) String accessKey,
-    		@RequestParam(value = "secreetKey", required = true ) String secreetKey) throws Exception {
+    		@RequestParam(value = "secretKey", required = true ) String secreetKey) throws Exception {
 
 
 		AWSAuthService auth = new AWSAuthService(accessKey, secreetKey, null);
@@ -77,7 +70,7 @@ public class AWSUsageReportController {
 	@RequestMapping("/accountReport")
     public @ResponseBody ArrayList<HashMap<Object, Object>> getAccountReports(@RequestParam(value = "account", required = false ) String accountNames,
     		@RequestParam(value = "accessKey", required = true ) String accessKey,
-    		@RequestParam(value = "secreetKey", required = true ) String secreetKey) throws Exception {
+    		@RequestParam(value = "secretKey", required = true ) String secreetKey) throws Exception {
 
 		String[] accounts = {"demo", "sujai", "gow", "gopi", "prakash", "manish", "rhel7", "ashish", "rakesh", "ramendra", "saas", "rohit",
 				"tapan", "pradeep", "bharathi", "mradul", "sajith", "sap", "texuna"};
@@ -151,8 +144,6 @@ public class AWSUsageReportController {
 	        				} else {
 	        					accountUsageInfo.put(instance.getState().getName(), 1);
 	        				}
-
-
 		        		}
 	        		}
 	        	}

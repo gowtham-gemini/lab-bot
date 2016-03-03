@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
-
   <head>
-    <link href='./css/style.css' rel="stylesheet" type="text/css" />
+  	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <link href='./css/style.css' rel="stylesheet" type="text/css">
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js" type="text/javascript"></script>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="./js/report.js"></script>
   </head>
-
   <body ng-controller="ReportCtrl">
   	<div ng-class="loading"></div>
 	<div class="container theme-showcase" role="main">
@@ -21,8 +20,8 @@
 			     <div class="form-group">
 			      <label for="accounts">Access Key:</label>
 			      <input type="text" ng-model="accountreport.accessKey" class="form-control" placeholder="Enter AWS Access Key">
-			      <label for="accounts">Secreet Key:</label>
-			      <input type="text" ng-model="accountreport.secreetKey" class="form-control" placeholder="Enter AWS Secreet Key">
+			      <label for="accounts">Secret Key:</label>
+			      <input type="text" ng-model="accountreport.secretKey" class="form-control" placeholder="Enter AWS Secret Key">
 			     </div>
 		     </div>
 		     <div class="row" style="margin-top: 10px;">

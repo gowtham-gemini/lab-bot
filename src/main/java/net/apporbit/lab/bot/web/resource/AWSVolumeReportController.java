@@ -21,7 +21,7 @@ public class AWSVolumeReportController {
 
 	@RequestMapping("/unusedVolumes")
     public @ResponseBody ArrayList<HashMap<Object, Object>> getUnusedVolumes(@RequestParam(value = "accessKey", required = true ) String accessKey,
-    		@RequestParam(value = "secreetKey", required = true ) String secreetKey) throws Exception {
+    		@RequestParam(value = "secretKey", required = true ) String secreetKey) throws Exception {
 
 		AWSAuthService auth = new AWSAuthService(accessKey, secreetKey, null);
 
@@ -71,19 +71,13 @@ public class AWSVolumeReportController {
 
 	@RequestMapping("/cleanVolumes")
     public @ResponseBody HashMap<Object, Object> cleanVolumes(@RequestParam(value = "accessKey", required = true ) String accessKey,
-    		@RequestParam(value = "secreetKey", required = true ) String secreetKey) throws Exception {
-
+    		@RequestParam(value = "secretKey", required = true ) String secreetKey) throws Exception {
 
 		AWSAuthService auth = new AWSAuthService(accessKey, secreetKey, null);
 
 		DescribeVolumesRequest describeVolumesRequest = new DescribeVolumesRequest();
 
-
 		DescribeRegionsResult describeResult = auth.getAmazonEC2Client().describeRegions();
-
-
-
-        ArrayList<HashMap<Object, Object>> regionsList = new ArrayList<>();
 
         for (com.amazonaws.services.ec2.model.Region awsRegion : describeResult.getRegions()) {
 
