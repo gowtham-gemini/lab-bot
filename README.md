@@ -54,10 +54,9 @@ docker images
 
 ## Running the App
 
-Application needs following properties to run
-
 Install Java 8
-Java -jar lab-bot.jar
+
+java -jar lab-bot.jar
 
 ## Report List
 
