@@ -62,5 +62,7 @@ Java -jar lab-bot.jar
 ## Report List
 
 /volumeReports - gives repors about volume usage
+
 /flavoeReports -  gives repors about flavor usage in all region
+
 /accountReports - gives repors about account resource usage
